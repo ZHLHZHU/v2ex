@@ -1,19 +1,19 @@
 ## V2EX ##
-�������[V2EX](https://v2ex.com)д��С�ű�~
+几个针对[V2EX](https://v2ex.com)写的小脚本~ **(已支持Python3)**
 
 ## v2ex_daily.py ##
-���κηǱ�׼������, ��ȡv2exÿ�յ�¼����.
+无任何非标准库依赖, 获取v2ex每日登录奖励.
 
-### ���ʹ�� ###
-֮ǰ[V2EX](https://v2ex.com)��֤��¼�õ�Cookie��`auth`, ÿ�ε�¼��`auth`��ֵ������ͬ��, ����Ҫ���ľ��ǰ����ֵ�����ű��еı���`V2EX_COOKIE`. 
+### 如何使用 ###
+之前[V2EX](https://v2ex.com)验证登录用的Cookie是`auth`, 每次登录后`auth`的值都是相同的, 你需要做的就是把这个值赋给脚本中的变量`V2EX_COOKIE`. 
 
-�������µ�v2ex��֤Cookie�Ѿ���Ϊ`A2`, ����֮ǰ��`auth`���ǿ���ʹ�õ�, �������ǿ��Դ�`A2`�еõ�`auth`��ֵ. ����`A2`�ĸ�ʽ��������:
+不过最新的v2ex验证Cookie已经更为`A2`, 不过之前的`auth`还是可以使用的, 而且我们可以从`A2`中得到`auth`的值. 典型`A2`的格式是这样的:
 
 > 2|1:0|10:1415406915|2:A2|56:xxxxxx|uuuuuu
 
-���ǹ�ע����`56:xxxxxx`, ǰ���`56`��ʾ�����`xxxxxx`����, �������`xxxxxx`��**֮ǰCookie`auth`ֵ��`Base64`����ֵ**, �������ֵ�������ű��еı���`V2EX_COOKIE`�Ϳ�����!
+我们关注的是`56:xxxxxx`, 前面的`56`表示后面的`xxxxxx`长度, 而后面的`xxxxxx`是**之前Cookie`auth`值的`Base64`编码值**, 解码这个值并赋给脚本中的变量`V2EX_COOKIE`就可以了!
 
-���, ���Ӷ�ʱ����, ÿ��ִ�нű�~~
+最后, 添加定时任务, 每天执行脚本~~
 
 ## v2ex_avatar.py ##
-��ȡv2exĳ��ע���û���ͷ��ǰ���Ǹ��û��ϴ����Զ���ͷ�񣩡��������� [��ʲô�취��Ū��v2ex���������û���ͷ��ͼƬ](https://www.v2ex.com/t/95092).
+获取v2ex某个注册用户的头像（前提是该用户上传了自定义头像）。方法来自 [有什么办法能弄到v2ex里面所有用户的头像图片](https://www.v2ex.com/t/95092).
